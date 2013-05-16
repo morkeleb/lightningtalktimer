@@ -5,9 +5,16 @@ var indexColors = ["#ffffff", "#ffcccc", "#ccffcc"];
 var currentseconds = 0;
 var index = 0;
 
+function padWith0 (number) {
+	if(number < 10){
+		return "0"+number;
+	}
+	return number;
+}
+
 function printTime () {
-		var minutes = Math.floor(currentseconds / 60);
-		var seconds = currentseconds % 60;
+		var minutes = padWith0(Math.floor(currentseconds / 60));
+		var seconds = padWith0(currentseconds % 60);
 		$('#timer').text(minutes + ":" + seconds);
 }
 
