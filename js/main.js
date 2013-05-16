@@ -13,7 +13,7 @@ function padWith0 (number) {
 }
 
 function printTime () {
-		var minutes = padWith0(Math.floor(currentseconds / 60));
+		var minutes = Math.floor(currentseconds / 60);
 		var seconds = padWith0(currentseconds % 60);
 		$('#timer').text(minutes + ":" + seconds);
 }
