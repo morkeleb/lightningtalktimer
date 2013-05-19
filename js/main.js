@@ -1,9 +1,9 @@
 
 
-var times = [10, 7, 1];
-var indexColors = ["#ffffff", "#ffcccc", "#ccffcc"];
+var times = [10, 2];
+var indexColors = [ "#ccffcc","#ffffff", "#ffcccc"];
 var currentseconds = 0;
-var index = 0;
+var index = 1;
 
 function padWith0 (number) {
 	if(number < 10){
@@ -13,24 +13,22 @@ function padWith0 (number) {
 }
 
 function printTime () {
-		var minutes = Math.floor(currentseconds / 60);
-		var seconds = padWith0(currentseconds % 60);
-		$('#timer').text(minutes + ":" + seconds);
+	var minutes = Math.floor(currentseconds / 60);
+	var seconds = padWith0(currentseconds % 60);
+	$('#timer').text(minutes + ":" + seconds);
 }
 
 
 function countDown () {
 	currentseconds--;
 	printTime();
-	$("body").css("background-color", indexColors[index]);
-	if(currentseconds === 0){
+	if(currentseconds < 0){
 		document.getElementById('sound').play();
 		index = (index +1) % times.length;
 		currentseconds = times[index]*60;
+		$("body").css("background-color", indexColors[index]);
 		printTime();
 	}
 }
 
-currentseconds = times[index]*60;
-printTime();
 setInterval(countDown, 1000);
