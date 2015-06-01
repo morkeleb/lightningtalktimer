@@ -19,6 +19,10 @@ function printTime () {
 }
 
 
+$("body").click(function () {
+	document.getElementById('sound').play();
+});
+
 function countDown () {
 	currentseconds--;
 	printTime();
